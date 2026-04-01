@@ -1,152 +1,122 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>بوابة شركاء النجاح | OPERIX Solutions</title>
+<title>Partner Portal | OPERIX Solutions</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Space+Grotesk:wght@500;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
 <style>
   :root {
-	--navy: #1e2d40;
-	--navy-light: #2a3f5c;
-	--gold: #9a6f28;
-	--gold-light: #c49440;
-	--bg: #0b1120;
-	--surface: rgba(30, 45, 64, 0.6);
-	--surface-hover: rgba(30, 45, 64, 0.9);
-	--text-main: #f8fafc;
-	--text-muted: #94a3b8;
-	--border: rgba(255, 255, 255, 0.1);
+	--navy: #0f172a; --navy-light: #1e293b;
+	--gold: #d97706; --gold-light: #f59e0b;
+	--bg: #020617; 
+	--surface: rgba(30, 41, 59, 0.7);
+	--surface-hover: rgba(30, 41, 59, 0.9);
+	--text-main: #f8fafc; --text-muted: #94a3b8;
+	--border: rgba(255, 255, 255, 0.08);
 	
-	--font-ar: 'Cairo', sans-serif;
-	--font-en: 'Space Grotesk', sans-serif;
+	--font-main: 'Inter', sans-serif;
+	--font-heading: 'Space Grotesk', sans-serif;
 	--font-mono: 'Fira Code', monospace;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
   body {
-	background-color: var(--bg);
-	font-family: var(--font-ar);
-	color: var(--text-main);
-	min-height: 100vh;
-	display: flex;
-	background-image: radial-gradient(circle at 100% 0%, rgba(154, 111, 40, 0.15), transparent 40%),
-					  radial-gradient(circle at 0% 100%, rgba(30, 45, 64, 0.8), transparent 40%);
+	background-color: var(--bg); font-family: var(--font-main); color: var(--text-main);
+	min-height: 100vh; display: flex;
+	background-image: radial-gradient(circle at 100% 0%, rgba(245, 158, 11, 0.1), transparent 40%),
+					  radial-gradient(circle at 0% 100%, rgba(30, 41, 59, 0.8), transparent 40%);
 	background-attachment: fixed;
   }
 
-  .en-text { font-family: var(--font-en); direction: ltr; display: inline-block; }
-  .mono-text { font-family: var(--font-mono); direction: ltr; display: inline-block; }
+  .mono-text { font-family: var(--font-mono); }
 
   /* ─── Sidebar ─── */
   .sidebar {
-	width: 260px;
-	background: rgba(11, 17, 32, 0.6);
-	backdrop-filter: blur(20px);
-	border-left: 1px solid var(--border);
-	display: flex;
-	flex-direction: column;
-	padding: 24px;
-	z-index: 10;
+	width: 280px; background: rgba(2, 6, 23, 0.6); backdrop-filter: blur(20px);
+	border-right: 1px solid var(--border); display: flex; flex-direction: column;
+	padding: 30px 24px; z-index: 10;
   }
-  
-  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
-  .brand img { width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--border); }
-  .brand-text { font-family: var(--font-en); font-size: 20px; font-weight: 800; color: #fff; letter-spacing: 1px; line-height: 1.1; }
-  .brand-sub { font-size: 9px; color: var(--gold-light); letter-spacing: 2px; text-transform: uppercase; }
+  .brand { display: flex; align-items: center; gap: 14px; margin-bottom: 40px; }
+  .brand img { width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--border); }
+  .brand-text { font-family: var(--font-heading); font-size: 22px; font-weight: 800; color: #fff; letter-spacing: 0.5px; line-height: 1.1; }
+  .brand-sub { font-size: 10px; color: var(--gold-light); letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
 
-  .client-info {
-	background: var(--surface);
-	border: 1px solid var(--border);
-	border-radius: 14px;
-	padding: 16px;
-	margin-bottom: 30px;
-  }
-  .client-info p { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
-  .client-info h3 { font-size: 16px; color: #fff; font-weight: 700; margin-bottom: 10px; }
-  .status-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(34, 197, 94, 0.15); color: #4ade80; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; border: 1px solid rgba(34, 197, 94, 0.3); }
+  .client-info { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin-bottom: 35px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+  .client-info p { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; font-weight: 600; }
+  .client-info h3 { font-family: var(--font-heading); font-size: 18px; color: #fff; font-weight: 700; margin-bottom: 12px; }
+  .status-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(34, 197, 94, 0.1); color: #4ade80; padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; border: 1px solid rgba(34, 197, 94, 0.2); }
   .status-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 8px #4ade80; }
 
-  .nav-item {
-	display: flex; align-items: center; gap: 12px; padding: 12px 16px;
-	color: var(--text-muted); text-decoration: none; border-radius: 10px;
-	font-weight: 600; font-size: 14px; transition: all 0.2s; margin-bottom: 8px;
-	cursor: pointer;
-  }
-  .nav-item:hover, .nav-item.active { background: var(--gold); color: var(--navy); }
+  .nav-item { display: flex; align-items: center; gap: 14px; padding: 14px 18px; color: var(--text-muted); text-decoration: none; border-radius: 12px; font-weight: 500; font-size: 14px; transition: all 0.2s ease; margin-bottom: 8px; cursor: pointer; }
+  .nav-item:hover, .nav-item.active { background: rgba(245, 158, 11, 0.1); color: var(--gold-light); }
+  .nav-item.active { border: 1px solid rgba(245, 158, 11, 0.2); }
   .nav-item svg { width: 18px; height: 18px; }
 
   /* ─── Main Content ─── */
-  .main-content {
-	flex: 1;
-	padding: 30px 40px;
-	overflow-y: auto;
-	height: 100vh;
-  }
+  .main-content { flex: 1; padding: 40px 50px; overflow-y: auto; height: 100vh; }
+  .top-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px; }
+  .top-header h1 { font-family: var(--font-heading); font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+  .top-header p { font-size: 14px; color: var(--text-muted); margin-top: 6px; }
 
-  .top-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-  .top-header h1 { font-size: 24px; font-weight: 800; color: #fff; }
-  .top-header p { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
-
-  .btn-refresh {
-	background: var(--surface); color: #fff; border: 1px solid var(--border);
-	padding: 10px 20px; border-radius: 10px; font-family: var(--font-ar);
-	font-weight: 700; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 8px;
-	transition: background 0.2s;
-  }
-  .btn-refresh:hover { background: var(--surface-hover); border-color: var(--gold); }
+  .btn-refresh { background: var(--surface); color: #fff; border: 1px solid var(--border); padding: 10px 20px; border-radius: 12px; font-family: var(--font-main); font-weight: 500; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease; }
+  .btn-refresh:hover { background: var(--surface-hover); border-color: var(--gold-light); box-shadow: 0 0 15px rgba(245, 158, 11, 0.1); }
 
   /* ─── KPI Cards ─── */
-  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 30px; }
-  .kpi-card {
-	background: var(--surface); backdrop-filter: blur(20px);
-	border: 1px solid var(--border); border-radius: 20px;
-	padding: 24px; position: relative; overflow: hidden;
-  }
-  .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--border); transition: background 0.3s; }
-  .kpi-card:hover::before { background: var(--gold); }
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-bottom: 35px; }
+  .kpi-card { background: var(--surface); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 20px; padding: 24px; position: relative; overflow: hidden; transition: transform 0.2s ease; }
+  .kpi-card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.15); }
+  .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; bottom: 0; background: var(--border); transition: background 0.3s; }
+  .kpi-card:hover::before { background: var(--gold-light); }
   
-  .kpi-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; color: var(--text-muted); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-  .kpi-icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #fff; border: 1px solid var(--border); }
-  .kpi-value { font-family: var(--font-mono); font-size: 32px; font-weight: 800; color: #fff; line-height: 1; }
-  .kpi-trend { font-size: 11px; color: #4ade80; font-weight: 600; display: flex; align-items: center; gap: 4px; margin-top: 10px; }
+  .kpi-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; color: var(--text-muted); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi-icon { width: 40px; height: 40px; border-radius: 12px; background: rgba(255,255,255,0.03); display: flex; align-items: center; justify-content: center; color: #fff; border: 1px solid var(--border); }
+  .kpi-value { font-family: var(--font-mono); font-size: 36px; font-weight: 700; color: #fff; line-height: 1; letter-spacing: -1px; }
+  .kpi-trend { font-size: 12px; color: #4ade80; font-weight: 500; display: flex; align-items: center; gap: 6px; margin-top: 12px; }
+  
+  .daily-breakdown { display: flex; gap: 10px; margin-top: 15px; }
+  .breakdown-pill { padding: 4px 10px; border-radius: 8px; font-size: 11px; font-weight: 600; display: flex; align-items: center; gap: 5px; }
+  .pill-free { background: rgba(245, 158, 11, 0.15); color: var(--gold-light); border: 1px solid rgba(245, 158, 11, 0.3); }
+  .pill-paid { background: rgba(96, 165, 250, 0.15); color: #60a5fa; border: 1px solid rgba(96, 165, 250, 0.3); }
 
-  /* ─── Charts & Tables ─── */
-  .dashboard-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin-bottom: 20px; }
+  /* ─── Dashboard Layout Grid ─── */
+  .dashboard-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px; margin-bottom: 24px; }
   .full-width-panel { grid-column: 1 / -1; }
   
-  .panel {
-	background: var(--surface); backdrop-filter: blur(20px);
-	border: 1px solid var(--border); border-radius: 20px;
-	padding: 24px;
-  }
-  .panel h2 { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+  .panel { background: var(--surface); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 24px; padding: 28px; }
+  .panel h2 { font-family: var(--font-heading); font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; letter-spacing: -0.3px; }
 
-  /* Table */
-  table { width: 100%; border-collapse: collapse; text-align: right; }
-  th { font-size: 11px; color: var(--text-muted); font-weight: 700; text-transform: uppercase; padding-bottom: 12px; border-bottom: 1px solid var(--border); letter-spacing: 1px; }
-  td { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.03); font-size: 13px; color: #e2e8f0; font-weight: 600; }
+  /* ─── Table Styles ─── */
+  .table-container { overflow-x: auto; margin-top: 10px; max-height: 300px; overflow-y: auto; }
+  table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; }
+  th { font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; padding: 0 16px 14px 16px; border-bottom: 1px solid var(--border); letter-spacing: 1px; position: sticky; top: 0; background: rgba(30, 41, 59, 0.95); z-index: 2; }
+  td { padding: 16px; border-bottom: 1px solid rgba(255,255,255,0.03); font-size: 13px; color: #e2e8f0; font-weight: 500; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .staff-container { display: flex; align-items: center; gap: 8px; }
+  .staff-avatar { width: 24px; height: 24px; border-radius: 50%; background: var(--navy-light); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: var(--gold-light); border: 1px solid rgba(245, 158, 11, 0.3); }
   
-  .badge-member { background: rgba(196, 148, 64, 0.15); color: var(--gold-light); border: 1px solid rgba(196, 148, 64, 0.3); padding: 4px 10px; border-radius: 20px; font-size: 10px; font-weight: 700; }
-  .badge-external { background: rgba(96, 165, 250, 0.15); color: #60a5fa; border: 1px solid rgba(96, 165, 250, 0.3); padding: 4px 10px; border-radius: 20px; font-size: 10px; font-weight: 700; }
+  .badge-member { background: rgba(245, 158, 11, 0.1); color: var(--gold-light); border: 1px solid rgba(245, 158, 11, 0.2); padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 600; display: inline-block; }
+  .badge-external { background: rgba(96, 165, 250, 0.1); color: #60a5fa; border: 1px solid rgba(96, 165, 250, 0.2); padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 600; display: inline-block; }
 
-  /* Loader */
-  .loader { display: inline-block; width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.1); border-radius: 50%; border-top-color: var(--gold); animation: spin 1s ease-in-out infinite; }
+  /* ─── Loader ─── */
+  .loader { display: inline-block; width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.1); border-radius: 50%; border-top-color: var(--gold-light); animation: spin 1s ease-in-out infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
   /* Responsive */
+  @media (max-width: 1200px) { .dashboard-grid { grid-template-columns: 1fr; } }
   @media (max-width: 992px) {
 	body { flex-direction: column; }
-	.sidebar { width: 100%; border-left: none; border-bottom: 1px solid var(--border); padding: 15px 20px; }
-	.brand { margin-bottom: 20px; }
-	.dashboard-grid { grid-template-columns: 1fr; }
+	.sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); padding: 20px; }
+	.brand { margin-bottom: 24px; }
 	.main-content { padding: 20px; height: auto; }
   }
 </style>
@@ -163,21 +133,21 @@
   </div>
 
   <div class="client-info">
-	<p>موقع العميل</p>
-	<h3 id="client-location-name">مقهى مايند بريك</h3>
-	<div class="status-badge">العمليات نشطة الآن</div>
+	<p>Location</p>
+	<h3 id="client-location-name">Mind Break Cafe</h3>
+	<div class="status-badge">Operations Active</div>
   </div>
 
   <div class="nav-item active">
 	<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-	الملخص الحي
+	Live Summary
   </div>
-  <div class="nav-item" onclick="alert('للحصول على التقارير التفصيلية، يرجى التواصل مع إدارة OPERIX.')">
+  <div class="nav-item" onclick="alert('For detailed monthly exports, please contact OPERIX Management.')">
 	<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-	التقارير الشهرية
+	Monthly Reports
   </div>
   
-  <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border); font-size: 11px; color: var(--text-muted); text-align: center; font-family: var(--font-en);">
+  <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--text-muted); text-align: center; font-weight: 500;">
 	Powered by OPERIX Solutions
   </div>
 </div>
@@ -185,59 +155,67 @@
 <div class="main-content">
   <div class="top-header">
 	<div>
-	  <h1>نظرة عامة على العمليات</h1>
+	  <h1>Operations Overview</h1>
 	  <p id="current-date"></p>
 	</div>
 	<button class="btn-refresh" onclick="fetchLiveClientData()">
-	  <svg id="refresh-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M3 21v-5h5"/></svg>
-	  تحديث البيانات
+	  <svg id="refresh-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M3 21v-5h5"/></svg>
+	  Refresh Data
 	</button>
   </div>
 
   <div class="kpi-grid">
 	<div class="kpi-card">
 	  <div class="kpi-header">
-		السيارات المتوقفة حالياً
+		Currently Parked
 		<div class="kpi-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></div>
 	  </div>
 	  <div class="kpi-value" id="kpi-parked">--</div>
 	  <div class="kpi-trend">
 		<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-		تشمل خدمة الـ Valet فقط
+		Live Active Valet
 	  </div>
 	</div>
 	
 	<div class="kpi-card">
 	  <div class="kpi-header">
-		سيارات تم خدمتها (اليوم)
+		Total Served (Today)
 		<div class="kpi-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
 	  </div>
 	  <div class="kpi-value" style="color: var(--gold-light);" id="kpi-total-today">--</div>
-	  <div class="kpi-trend" style="color: var(--text-muted);">
-		إجمالي الحركة التشغيلية اليوم
+	  
+	  <div class="daily-breakdown">
+		<div class="breakdown-pill pill-free">
+		   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+		   <span id="kpi-free-today">0</span> Free
+		</div>
+		<div class="breakdown-pill pill-paid">
+		   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 12h20"/><path d="M12 2v20"/><path d="M7 7l10 10"/><path d="M17 7L7 17"/></svg>
+		   <span id="kpi-paid-today">0</span> Paid
+		</div>
 	  </div>
 	</div>
 
 	<div class="kpi-card">
 	  <div class="kpi-header">
-		إيرادات مواقف السيارات (اليوم)
+		Parking Revenue (Today)
 		<div class="kpi-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
 	  </div>
 	  <div class="kpi-value" id="kpi-revenue">--</div>
 	  <div class="kpi-trend" style="color: var(--text-muted);">
-		<span class="mono-text">SAR</span> إجمالي المبيعات
+		<span class="mono-text">SAR</span> Gross Sales
 	  </div>
 	</div>
 
 	<div class="kpi-card">
 	  <div class="kpi-header">
-		طاقم OPERIX المتواجد
+		Active Staff On-Site
 		<div class="kpi-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
 	  </div>
 	  <div class="kpi-value" id="kpi-staff">--</div>
 	  <div class="kpi-trend" style="color: #60a5fa;">
 		<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-		موثق عبر الـ GPS
+		GPS Verified
 	  </div>
 	</div>
   </div>
@@ -246,9 +224,9 @@
 	<div class="panel">
 	  <h2>
 		<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-		حركة السيارات خلال الأسبوع (مباشر)
+		Weekly Traffic (Live)
 	  </h2>
-	  <div style="height: 300px; width: 100%;">
+	  <div style="position: relative; height: 320px; width: 100%;">
 		<canvas id="trafficChartWeek"></canvas>
 	  </div>
 	</div>
@@ -256,19 +234,20 @@
 	<div class="panel">
 	  <h2>
 		<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-		أحدث العمليات (Live)
+		Recent Operations
 	  </h2>
-	  <div style="overflow-x: auto;">
+	  <div class="table-container">
 		<table>
 		  <thead>
 			<tr>
-			  <th>اللوحة</th>
-			  <th>الخدمة</th>
-			  <th>الوقت</th>
+			  <th>Plate No.</th>
+			  <th>Customer Type</th>
+			  <th>Handled By</th>
+			  <th>Time</th>
 			</tr>
 		  </thead>
 		  <tbody id="recent-activity-body">
-			<tr><td colspan="3" style="text-align: center; color: var(--text-muted); font-size: 12px; padding: 30px;">جاري جلب البيانات...</td></tr>
+			<tr><td colspan="4" style="text-align: center; color: var(--text-muted); font-size: 13px; padding: 40px;">Fetching live data...</td></tr>
 		  </tbody>
 		</table>
 	  </div>
@@ -278,9 +257,9 @@
   <div class="panel full-width-panel">
 	<h2>
 	  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-	  حركة السيارات خلال الشهر (مباشر)
+	  Monthly Traffic Overview (Live)
 	</h2>
-	<div style="height: 350px; width: 100%;">
+	<div style="position: relative; height: 350px; width: 100%;">
 	  <canvas id="trafficChartMonth"></canvas>
 	</div>
   </div>
@@ -288,69 +267,92 @@
 </div>
 
 <script>
-  // ─── إعدادات قواعد البيانات (Supabase) ───
+  // ─── Supabase Configuration ───
   const SUPABASE_URL = 'https://lzobdqlbsxjlupyewdqq.supabase.co';
   const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6b2JkcWxic3hqbHVweWV3ZHFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM5OTY0MDQsImV4cCI6MjA4OTU3MjQwNH0.fH-bV3QiQUbk_6L-clwwdHlZTnTIYAIJeKysMhUlBIs';
 
   let weeklyChart = null;
   let monthlyChart = null;
 
-  async function sbFetch(path, opts={}) {
+  async function sbFetch(path) {
 	const res = await fetch(SUPABASE_URL + '/rest/v1/' + path, {
-	  ...opts,
+	  method: 'GET',
 	  headers: {
 		'Content-Type': 'application/json',
 		'apikey': SUPABASE_ANON,
 		'Authorization': 'Bearer ' + SUPABASE_ANON,
-		'Prefer': 'return=representation',
-		...(opts.headers||{})
 	  }
 	});
-	if(!res.ok) throw new Error('Network Error');
+	if(!res.ok) throw new Error(`API Error: ${res.status}`);
 	const text = await res.text();
 	return text ? JSON.parse(text) : [];
   }
 
   window.onload = () => {
+	// Current Local Date
 	const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-	document.getElementById('current-date').innerText = new Date().toLocaleDateString('ar-SA', options);
+	document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-US', options);
 	
 	initCharts();
 	fetchLiveClientData();
-	setInterval(fetchLiveClientData, 30000);
+	setInterval(fetchLiveClientData, 30000); // Auto-refresh every 30s
   };
 
+  // --- BULLETPROOF DATE PARSING ---
+  // Safely converts any known date string into a true Date object
+  function parseSafeDate(val) {
+	  if (!val) return null;
+	  if (val instanceof Date) return val;
+	  
+	  let d = new Date(val);
+	  if (!isNaN(d.getTime())) return d;
+	  
+	  // Fallback for DD/MM/YYYY or DD-MM-YYYY
+	  if (typeof val === 'string') {
+		  const parts = val.split(/[\/\-]/);
+		  if (parts.length === 3) {
+			  if (parts[2].length === 4) return new Date(parts[2], parts[1] - 1, parts[0]); // DD/MM/YYYY
+			  if (parts[0].length === 4) return new Date(parts[0], parts[1] - 1, parts[2]); // YYYY/MM/DD
+		  }
+	  }
+	  return null;
+  }
+
+  // Generate an array of strict YYYY-MM-DD strings for the past 'X' days
   function getDatesArray(days) {
 	  let dates = [];
 	  for (let i = days - 1; i >= 0; i--) {
 		  let d = new Date();
 		  d.setDate(d.getDate() - i);
-		  dates.push(d.toLocaleDateString('en-CA')); // YYYY-MM-DD format
+		  dates.push(`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`);
 	  }
 	  return dates;
   }
 
+  // Safe today checker
+  function isToday(dateStr) {
+	  const today = new Date();
+	  const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+	  return dateStr === todayStr;
+  }
+
+  // Initialize Chart.js
   function initCharts() {
 	Chart.defaults.color = '#94a3b8';
-	Chart.defaults.font.family = "'Cairo', sans-serif";
+	Chart.defaults.font.family = "'Inter', sans-serif";
 	
 	const commonOptions = {
-	  responsive: true,
-	  maintainAspectRatio: false,
+	  responsive: true, maintainAspectRatio: false,
 	  plugins: {
-		legend: { display: true, position: 'top', labels: { usePointStyle: true, boxWidth: 8 } },
+		legend: { display: true, position: 'top', labels: { usePointStyle: true, boxWidth: 8, font: { family: "'Inter', sans-serif", size: 12 } } },
 		tooltip: {
-		  backgroundColor: 'rgba(11, 17, 32, 0.9)',
-		  titleFont: { family: "'Cairo', sans-serif", size: 13 },
-		  bodyFont: { family: "'Fira Code', monospace", size: 14 },
-		  padding: 12,
-		  borderColor: 'rgba(255,255,255,0.1)',
-		  borderWidth: 1
+		  backgroundColor: 'rgba(2, 6, 23, 0.95)', titleFont: { family: "'Inter', sans-serif", size: 13, weight: '600' },
+		  bodyFont: { family: "'Fira Code', monospace", size: 13 }, padding: 14, borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1, cornerRadius: 8
 		}
 	  },
 	  scales: {
-		y: { beginAtZero: true, grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { font: { family: "'Fira Code', monospace" } } },
-		x: { grid: { display: false } }
+		y: { beginAtZero: true, grid: { color: 'rgba(255, 255, 255, 0.04)' }, ticks: { font: { family: "'Fira Code', monospace" } }, border: { display: false } },
+		x: { grid: { display: false }, border: { display: false } }
 	  }
 	};
 
@@ -358,58 +360,86 @@
 	weeklyChart = new Chart(ctxWeek, { type: 'line', data: { labels: [], datasets: [] }, options: commonOptions });
 
 	const ctxMonth = document.getElementById('trafficChartMonth').getContext('2d');
-	monthlyChart = new Chart(ctxMonth, { type: 'bar', data: { labels: [], datasets: [] }, options: {...commonOptions, plugins: {...commonOptions.plugins, tooltip: {...commonOptions.plugins.tooltip, mode: 'index', intersect: false}}, scales: {...commonOptions.scales, x: { stacked: true, grid: { display: false } }, y: { stacked: true, beginAtZero: true, grid: { color: 'rgba(255, 255, 255, 0.05)' } } } } });
+	monthlyChart = new Chart(ctxMonth, { 
+	  type: 'bar', data: { labels: [], datasets: [] }, 
+	  options: {
+		...commonOptions, 
+		plugins: { ...commonOptions.plugins, tooltip: {...commonOptions.plugins.tooltip, mode: 'index', intersect: false} }, 
+		scales: {
+		  ...commonOptions.scales, 
+		  x: { stacked: true, grid: { display: false }, border: { display: false } }, 
+		  y: { stacked: true, beginAtZero: true, grid: { color: 'rgba(255, 255, 255, 0.04)' }, border: { display: false } } 
+		} 
+	  } 
+	});
+  }
+
+  // Extract initials
+  function getInitials(name) {
+	if (!name || name.trim() === '' || name === 'Unknown') return 'S'; 
+	const parts = name.trim().split(' ');
+	if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
+	return name.substring(0, 2).toUpperCase();
   }
 
  async function fetchLiveClientData() {
 	 const refreshIcon = document.getElementById('refresh-icon');
-	 refreshIcon.classList.add('loader');
-	 refreshIcon.innerHTML = '';
-	 refreshIcon.style.borderTopColor = 'var(--gold)';
+	 refreshIcon.classList.add('loader'); refreshIcon.innerHTML = ''; refreshIcon.style.borderTopColor = 'var(--gold-light)';
  
 	 try {
-	   // Get last 30 days timestamp
-	   const thirtyDaysAgo = new Date();
-	   thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-	   const dateFilter = thirtyDaysAgo.toISOString();
-
-	   // Fetch data up to limit 2000 for the last 30 days
-	   const invoices = await sbFetch(`operix_invoices?select=plate_num,amount,service_type,vehicle_status,date&date=gte.${dateFilter}&order=date.desc&limit=2000`, { method: 'GET' });
-	   const safeInvoices = Array.isArray(invoices) ? invoices : [];
-	   
-	   const now = new Date();
-	   const todayStr = now.toLocaleDateString('en-CA'); 
- 
+	   // --- 1. Fetch Active Valet Cars ---
 	   let currentlyParked = 0;
+	   try {
+		   const activeCars = await sbFetch('operix_active_valet?select=*&limit=1000');
+		   if (Array.isArray(activeCars)) {
+			   currentlyParked = activeCars.filter(c => {
+				   const status = (c.status || c.vehicle_status || '').toLowerCase();
+				   return status !== 'completed' && status !== 'done';
+			   }).length;
+			   if(currentlyParked === 0 && activeCars.length > 0) currentlyParked = activeCars.length;
+		   }
+	   } catch (err) { console.warn("Could not fetch active_valet", err); }
+
+	   // --- 2. Fetch Invoices / Operations ---
+	   // Notice: using ?select=* ensures EVERY column is grabbed, including valet_name
+	   let invoices = [];
+	   try { invoices = await sbFetch('operix_invoices?select=*&order=created_at.desc&limit=3000'); } 
+	   catch (err) { console.warn("Could not fetch invoices", err); }
+	   
+	   const safeInvoices = Array.isArray(invoices) ? invoices : [];
+ 
+	   // --- Data Variables ---
 	   let totalRevenueToday = 0;
 	   let totalServedToday = 0;
+	   let todayFree = 0;
+	   let todayPaid = 0;
+	   
 	   let recentActivityHtml = '';
 	   let countActivity = 0;
 
-	   // Arrays for charts
 	   const last7Dates = getDatesArray(7);
 	   const last30Dates = getDatesArray(30);
 
 	   const weekData = { member: {}, external: {} };
 	   const monthData = { member: {}, external: {} };
 
-	   // Initialize dates with 0
+	   // Pre-fill dictionary so the graph lines don't break
 	   last7Dates.forEach(d => { weekData.member[d] = 0; weekData.external[d] = 0; });
 	   last30Dates.forEach(d => { monthData.member[d] = 0; monthData.external[d] = 0; });
  
+	   // --- Process Invoices Logic ---
 	   safeInvoices.forEach(inv => {
-		 // KPI processing
-		 if (inv.vehicle_status === 'Parked' || inv.vehicle_status === 'Requested') {
-		   currentlyParked++;
-		 }
- 
-		 const invDateObj = new Date(inv.date);
-		 const invDateStr = invDateObj.toLocaleDateString('en-CA');
+		 // EXPLICITLY check the actual 'date' column first, before 'created_at' fallback.
+		 const dateObj = parseSafeDate(inv.date) || parseSafeDate(inv.created_at);
+		 if (!dateObj) return;
 		 
-		 // Assuming 'Free' or 'Member' dictates a Mind Break Member. Others are External.
-		 const isMember = (inv.service_type === 'Free' || String(inv.service_type).toLowerCase() === 'member');
+		 // Normalize Date strictly to YYYY-MM-DD
+		 const invDateStr = `${dateObj.getFullYear()}-${String(dateObj.getMonth()+1).padStart(2, '0')}-${String(dateObj.getDate()).padStart(2, '0')}`;
 		 
-		 // Chart Counting
+		 const svcType = String(inv.service_type || inv.type || '').toLowerCase();
+		 const isMember = (svcType.includes('free') || svcType.includes('member') || svcType.includes('vip'));
+		 
+		 // Fill Charts Safely
 		 if (monthData.member[invDateStr] !== undefined) {
 			 if (isMember) monthData.member[invDateStr]++;
 			 else monthData.external[invDateStr]++;
@@ -419,21 +449,33 @@
 			 else weekData.external[invDateStr]++;
 		 }
 
-		 // Today's Stats processing
-		 if (invDateStr === todayStr) {
+		 // Today's Stats & Table
+		 if (isToday(invDateStr)) {
 		   totalServedToday++;
-		   totalRevenueToday += parseFloat(inv.amount || 0);
+		   totalRevenueToday += parseFloat(inv.amount || inv.total_amount || inv.price || 0);
 		   
-		   if (countActivity < 6) {
-			 const timeStr = invDateObj.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+		   if (isMember) todayFree++; else todayPaid++;
+		   
+		   if (countActivity < 10) { 
+			 const timeStr = dateObj.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
 			 const badgeClass = isMember ? 'badge-member' : 'badge-external';
-			 const badgeText = isMember ? 'عضو مايند بريك' : 'عميل خارجي';
+			 const badgeText = isMember ? 'Mind Break Member' : 'External Client';
+			 
+			 // Robust extraction of Valet Name
+			 const employeeName = inv.valet_name || inv.employee_name || inv.employee || inv.served_by || 'System';
+			 const initials = getInitials(employeeName);
 
 			 recentActivityHtml += `
 			   <tr>
 				 <td><span class="mono-text" style="color: #fff; font-weight: 700; letter-spacing: 1px;">${inv.plate_num || '---'}</span></td>
 				 <td><span class="${badgeClass}">${badgeText}</span></td>
-				 <td><span class="mono-text" style="color: var(--text-muted); font-size: 11px;">${timeStr}</span></td>
+				 <td>
+				   <div class="staff-container">
+					 <div class="staff-avatar">${initials}</div>
+					 <span>${employeeName}</span>
+				   </div>
+				 </td>
+				 <td><span class="mono-text" style="color: var(--text-muted); font-size: 12px;">${timeStr}</span></td>
 			   </tr>
 			 `;
 			 countActivity++;
@@ -441,29 +483,40 @@
 		 }
 	   });
  
-	   // KPI Updates
-	   const attendance = await sbFetch(`operix_attendance?type=eq.Check-In&order=submitted_at.desc&limit=100`, { method: 'GET' });
-	   const uniqueStaff = new Set((Array.isArray(attendance) ? attendance : [])
-		 .filter(a => new Date(a.submitted_at).toLocaleDateString('en-CA') === todayStr)
-		 .map(a => a.employee)).size;
+	   // --- 3. Fetch Attendance ---
+	   let uniqueStaff = 0;
+	   try {
+		   const attendance = await sbFetch('operix_attendance?select=*&limit=500');
+		   if (Array.isArray(attendance)) {
+			   uniqueStaff = new Set(attendance.filter(a => {
+				   const d = parseSafeDate(a.date) || parseSafeDate(a.submitted_at) || parseSafeDate(a.created_at);
+				   if(!d) return false;
+				   const dStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+				   return isToday(dStr);
+			   }).map(a => a.employee || a.employee_name)).size;
+		   }
+	   } catch (err) { console.warn("Could not fetch attendance", err); }
  
+	   // --- Update DOM Elements ---
 	   document.getElementById('kpi-parked').innerText = currentlyParked;
 	   document.getElementById('kpi-total-today').innerText = totalServedToday;
+	   document.getElementById('kpi-free-today').innerText = todayFree;
+	   document.getElementById('kpi-paid-today').innerText = todayPaid;
 	   document.getElementById('kpi-revenue').innerText = totalRevenueToday.toLocaleString();
 	   document.getElementById('kpi-staff').innerText = uniqueStaff > 0 ? uniqueStaff : Math.max(2, Math.floor(currentlyParked / 10));
  
 	   const tbody = document.getElementById('recent-activity-body');
 	   if (recentActivityHtml === '') {
-		 tbody.innerHTML = '<tr><td colspan="3" style="text-align: center; color: var(--text-muted); font-size: 12px; padding: 30px;">لا توجد عمليات مسجلة لليوم حتى الآن</td></tr>';
+		 tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: var(--text-muted); font-size: 13px; padding: 40px;">No operations recorded for today yet.</td></tr>';
 	   } else {
 		 tbody.innerHTML = recentActivityHtml;
 	   }
 
-	   // Update Charts
+	   // --- Update Charts ---
 	   updateLiveCharts(last7Dates, weekData, last30Dates, monthData);
  
 	 } catch(e) {
-	   console.error("Error fetching client data:", e);
+	   console.error("Critical error in fetchLiveClientData:", e);
 	 } finally {
 	   refreshIcon.classList.remove('loader');
 	   refreshIcon.innerHTML = '<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M3 21v-5h5"/>';
@@ -472,20 +525,26 @@
    }
 
    function updateLiveCharts(last7Dates, weekData, last30Dates, monthData) {
-	  // Formatting date labels (DD/MM)
+	  // Formatting Date to MMM DD (e.g. Oct 15) safely
 	  const formatLabel = (dateStr) => {
 		  const parts = dateStr.split('-');
-		  return `${parts[2]}/${parts[1]}`;
+		  const dateObj = new Date(parts[0], parts[1] - 1, parts[2]);
+		  return dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 	  };
 
 	  const weekLabels = last7Dates.map(formatLabel);
 	  const monthLabels = last30Dates.map(formatLabel);
 
-	  // Datasets configs
-	  const memberDataset = { label: 'أعضاء مايند بريك', backgroundColor: 'rgba(196, 148, 64, 0.2)', borderColor: '#c49440', borderWidth: 2, pointBackgroundColor: '#1e2d40', pointBorderColor: '#c49440', fill: true, tension: 0.4 };
-	  const externalDataset = { label: 'عملاء خارجيين', backgroundColor: 'rgba(96, 165, 250, 0.2)', borderColor: '#60a5fa', borderWidth: 2, pointBackgroundColor: '#1e2d40', pointBorderColor: '#60a5fa', fill: true, tension: 0.4 };
+	  const memberDataset = { 
+		label: 'Mind Break Members', backgroundColor: 'rgba(245, 158, 11, 0.15)', borderColor: '#f59e0b', 
+		borderWidth: 2, pointBackgroundColor: '#020617', pointBorderColor: '#f59e0b', fill: true, tension: 0.4 
+	  };
+	  
+	  const externalDataset = { 
+		label: 'External Clients', backgroundColor: 'rgba(96, 165, 250, 0.15)', borderColor: '#60a5fa', 
+		borderWidth: 2, pointBackgroundColor: '#020617', pointBorderColor: '#60a5fa', fill: true, tension: 0.4 
+	  };
 
-	  // Update Weekly Chart (Line)
 	  weeklyChart.data.labels = weekLabels;
 	  weeklyChart.data.datasets = [
 		  { ...memberDataset, data: Object.values(weekData.member) },
@@ -493,11 +552,10 @@
 	  ];
 	  weeklyChart.update();
 
-	  // Update Monthly Chart (Stacked Bar)
 	  monthlyChart.data.labels = monthLabels;
 	  monthlyChart.data.datasets = [
-		  { ...memberDataset, backgroundColor: '#c49440', data: Object.values(monthData.member) },
-		  { ...externalDataset, backgroundColor: '#60a5fa', data: Object.values(monthData.external) }
+		  { ...memberDataset, backgroundColor: '#f59e0b', borderWidth: 0, data: Object.values(monthData.member) },
+		  { ...externalDataset, backgroundColor: '#60a5fa', borderWidth: 0, borderRadius: {topLeft: 4, topRight: 4}, data: Object.values(monthData.external) }
 	  ];
 	  monthlyChart.update();
    }
