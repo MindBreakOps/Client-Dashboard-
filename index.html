@@ -8,13 +8,14 @@
 	<style>
 		:root {
 			--navy: #1e2d40;
+			--navy-hover: #2a3f5c;
 			--gold: #9a6f28;
-			--bg: #0b111a; 
-			--surface: #151e2b;
-			--text: #f0eff5;
+			--bg: #f0eff5; /* Light mode background */
+			--surface: #ffffff; /* White card */
+			--text: #18161f;
 			--text-muted: #7c788f;
 			--red: #dc2626;
-			--border: rgba(255, 255, 255, 0.05);
+			--border: rgba(0, 0, 0, 0.08);
 		}
 
 		* {
@@ -35,6 +36,181 @@
 		}
 
 		.notice-container {
+			background: var(--surface);
+			max-width: 650px;
+			width: 100%;
+			border-radius: 12px;
+			padding: 50px 40px;
+			text-align: center;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+			border-top: 6px solid var(--red);
+			border-bottom: 1px solid var(--border);
+			border-left: 1px solid var(--border);
+			border-right: 1px solid var(--border);
+		}
+
+		.brand-header {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 15px;
+			margin-bottom: 40px;
+		}
+
+		.custom-logo {
+			height: 50px;
+			width: auto;
+			object-fit: contain;
+		}
+
+		.brand-name {
+			font-size: 28px;
+			font-weight: 800;
+			letter-spacing: 2px;
+			color: var(--navy);
+		}
+
+		.brand-name span {
+			color: var(--gold);
+		}
+
+		.warning-icon {
+			color: var(--red);
+			margin-bottom: 20px;
+		}
+
+		h1 {
+			font-size: 32px;
+			font-weight: 800;
+			color: var(--red);
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin-bottom: 20px;
+		}
+
+		.heavy-message {
+			font-size: 18px;
+			line-height: 1.6;
+			font-weight: 500;
+			margin-bottom: 25px;
+			color: var(--text);
+		}
+
+		.heavy-message strong {
+			color: var(--navy);
+			font-weight: 800;
+		}
+
+		.apology {
+			font-size: 15px;
+			color: var(--text-muted);
+			margin-bottom: 35px;
+			font-style: italic;
+		}
+
+		.contact-card {
+			background: rgba(0, 0, 0, 0.03);
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			padding: 30px;
+			margin-top: 10px;
+		}
+
+		.contact-card p {
+			font-size: 16px;
+			color: var(--text);
+			font-weight: 600;
+			margin-bottom: 20px;
+		}
+
+		.email-btn {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			background-color: var(--navy);
+			color: #ffffff;
+			font-size: 18px;
+			font-weight: 700;
+			text-decoration: none;
+			padding: 14px 32px;
+			border-radius: 8px;
+			transition: all 0.2s ease;
+			box-shadow: 0 4px 6px rgba(30, 45, 64, 0.2);
+		}
+
+		.email-btn:hover {
+			background-color: var(--navy-hover);
+			transform: translateY(-2px);
+			box-shadow: 0 6px 12px rgba(30, 45, 64, 0.3);
+		}
+
+		.email-btn svg {
+			width: 20px;
+			height: 20px;
+		}
+
+		@media (max-width: 600px) {
+			.notice-container {
+				padding: 40px 20px;
+			}
+			.custom-logo {
+				height: 40px;
+			}
+			h1 {
+				font-size: 26px;
+			}
+			.heavy-message {
+				font-size: 16px;
+			}
+			.email-btn {
+				width: 100%;
+				font-size: 16px;
+				padding: 14px 20px;
+			}
+		}
+	</style>
+</head>
+<body>
+
+	<div class="notice-container">
+		<div class="brand-header">
+			<img src="https://raw.githubusercontent.com/MindBreakOps/LX-Permits/main/imind.png" alt="OPERIX Solutions Logo" class="custom-logo">
+			<div class="brand-name">OPERIX <span>SOLUTIONS</span></div>
+		</div>
+
+		<div class="warning-icon">
+			<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+				<line x1="12" y1="9" x2="12" y2="13"></line>
+				<line x1="12" y1="17" x2="12.01" y2="17"></line>
+			</svg>
+		</div>
+
+		<h1>Access Blocked</h1>
+
+		<div class="heavy-message">
+			Please be advised that access to this dashboard and all corresponding operational capabilities has been <strong>strictly suspended</strong>. This platform has been locked down due to critical, unresolved business contract issues and violations of our service agreements.
+		</div>
+
+		<div class="apology">
+			We are sincerely sorry for the disruption this enforcement may cause to your operations.
+		</div>
+
+		<div class="contact-card">
+			<p>If you have any queries or need to resolve this matter urgently, contact us ASAP:</p>
+			<a href="mailto:operixsolution@gmail.com" class="email-btn">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+					<polyline points="22,6 12,13 2,6"></polyline>
+				</svg>
+				Contact Support
+			</a>
+		</div>
+	</div>
+
+</body>
+</html>		.notice-container {
 			background: var(--surface);
 			max-width: 650px;
 			width: 100%;
